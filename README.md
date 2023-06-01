@@ -78,3 +78,21 @@ def test_for_new_python():
     # Тест, который провалится на старых версиях Python.
     ... 
 ```
+> pytest test_example.py::test_one_more -v
+
+```
+Сколько раз будет выполнен тест test_cartesian_product()?
+
+def cartesian_product(a, b):
+    return a * b
+
+
+@pytest.mark.parametrize('x', [1, 2])
+@pytest.mark.parametrize('y', ['one', 'two'])
+def test_cartesian_product(x, y):
+    assert cartesian_product(x, y) is not None 
+
+Ответ: 4 раза. Маркеры можно комбинировать между собой. В приведённом коде тест будет выполнен столько раз, сколько есть сочетаний переданных аргументов.
+```
+
+>
