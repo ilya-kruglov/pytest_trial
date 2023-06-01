@@ -104,4 +104,4 @@ def test_cartesian_product(x, y):
 ```
 
 > pytest test_engine.py -v
-
+> pytest -s -qq test_engine.py

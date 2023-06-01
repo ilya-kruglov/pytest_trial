@@ -1,25 +1,27 @@
-# test_engine.py
 import pytest
 
-# Импортируем класс двигателя.
 from .engine_class import Engine
 
 
-@pytest.fixture
+@pytest.fixture(scope='session')
 def engine():
     """Фикстура возвращает экземпляр класса двигателя."""
+    print('Engine factory')  # Добавьте вывод сообщения.
     return Engine()
 
 
-# Эта фикстура не возвращает никаких значений, но изменяет объект,
-# созданный другой фикстурой.
-@pytest.fixture(autouse=True)  # Обозначаем фикстуру как автоматически вызываемую для всех тестов.
-def start_engine(engine):  # Вызываем фикстуру получения объекта двигателя.
+@pytest.fixture(autouse=True)
+def start_engine(engine):
     """Фикстура запускает двигатель."""
-    # Изменяем значение свойства объекта:
     engine.is_running = True
 
 
 def test_engine_is_running(engine):
     """Тест проверяет, работает ли двигатель."""
-    assert engine.is_running  # Проверяем, что значение атрибута is_running это True.
+    assert engine.is_running
+
+
+# Допишите новый тест.
+def test_check_engine_class(engine):
+    """Тест проверяет класс объекта."""
+    assert isinstance(engine, Engine)
