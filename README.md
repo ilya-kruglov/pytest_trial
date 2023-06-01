@@ -105,3 +105,17 @@ def test_cartesian_product(x, y):
 
 > pytest test_engine.py -v
 > pytest -s -qq test_engine.py
+
+#### Спринт 8/25 → Тема 5/8: Библиотека pytest → Урок 6/6
+##### conftest, pytest.ini
+
+> pytest -m "slow"
+
+```
+# Запустить тесты, не отмеченные маркером slow:
+pytest -m "not slow"
+# Запустить тесты, отмеченные одновременно маркерами web и slow:
+pytest -m "web and slow"
+# Запустить тесты, отмеченные маркером web или slow:
+pytest -m "web or slow"
+```

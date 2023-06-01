@@ -1,4 +1,5 @@
 # test_example.py
+from time import sleep
 import pytest
 
 
@@ -29,8 +30,10 @@ def test_sort():
     assert result == ['Даша', 'Маша', 'Саша', 'Яша']
 
 
+@pytest.mark.slowwww  # Отмечаем маркером тест.
 def test_type():
     """Тестируем тип данных, возвращаемых из get_sort_list()."""
+    sleep(3)
     # Провальный тест:
     # ожидаем число, но вернётся список.
     result = get_sort_list('Яша, Саша, Маша, Даша')
