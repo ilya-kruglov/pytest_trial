@@ -119,3 +119,28 @@ pytest -m "web and slow"
 # Запустить тесты, отмеченные маркером web или slow:
 pytest -m "web or slow"
 ```
+
+```
+# pytest.ini
+[pytest]
+python_files = check_*.py
+python_classes = Check*
+python_functions = *_check
+```
+
+> pytest -o minversion=6 -o addopts=-v
+
+```
+Отключение кеша настраивается так:
+# pytest.ini
+addopts = -p no:cacheprovider 
+```
+
+> pytest -o addopts=-vv
+
+```
+.pytest.ini (если имя файла начинается с точки, то в Linux этот файл будет скрыт);
+pyproject.toml (универсальный файл настроек для проекта, может содержать в себе настройки разных инструментов, а не только pytest);
+tox.ini (файл настроек для тестов, написанных при помощи библиотеки tox, но поддерживается и pytest);
+setup.cfg (устаревший вариант, не рекомендуется к использованию).
+```
