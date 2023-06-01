@@ -61,4 +61,20 @@ q (quit) — выйти из режима отладки.
 
 #### Спринт 8/25 → Тема 5/8: Библиотека pytest → Урок 4/6
 
->
+> pytest --markers
+
+> import pytest
+> Тест с этим маркером будет пропущен.
+> @pytest.mark.skip
+
+> import pytest
+> Все тесты в этом файле будут пропущены.
+> pytestmark = pytest.mark.skip
+
+```
+@pytest.mark.xfail("sys.version_info < (2, 1)", 
+                   reason='Это старая версия Python, чего же вы ждали!')
+def test_for_new_python():
+    # Тест, который провалится на старых версиях Python.
+    ... 
+```
