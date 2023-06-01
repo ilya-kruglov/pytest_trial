@@ -98,4 +98,10 @@ def test_cartesian_product(x, y):
 #### Спринт 8/25 → Тема 5/8: Библиотека pytest → Урок 5/6
 ##### @pytest.fixture
 
-> 
+```
+@pytest.mark.usefixtures('one_fixture', 'another_fixture')
+Обратите внимание, что такой способ работает только с тестирующими функциями. Если в одной фикстуре нужно вызвать другую — этот маркер не сработает!
+```
+
+> pytest test_engine.py -v
+
